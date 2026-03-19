@@ -1,15 +1,11 @@
 ---
 name: seo-agi
 description: >
-  Write SEO pages that rank in Google AND get cited by LLMs (ChatGPT, Perplexity, Claude).
-  Use when creating airport parking pages, local service pages, listicles, comparison pages,
-  pricing pages, or any content that must pass the Reddit Test -- meaning a knowledgeable
-  practitioner would upvote it, not call it AI slop. Enforces information gain, 500-token
-  chunk architecture, real HTML tables, verification tags, and honest "Not For You" sections.
-  Triggers on: "write an SEO page", "seo-agi", "seo agi", "seo page for [keyword]", "create a landing page",
-  "rank for [keyword]", "rewrite this page for SEO", "optimize this content", "GEO", "AEO",
-  "generative engine optimization", "seo-agi", "write a page that ranks".
-  Do NOT trigger for pure technical SEO audits (crawl errors, robots.txt, sitemap validation).
+  Write SEO pages that rank on Google AND get cited by LLMs. Uses live SERP data,
+  500-token chunk architecture, and the Reddit Test quality gate.
+  Triggers on: "write an SEO page", "seo-agi", "seo page for [keyword]",
+  "rank for [keyword]", "rewrite this page for SEO", "GEO", "AEO",
+  "write a page that ranks".
 metadata:
   openclaw:
     emoji: "\U0001F969"
@@ -442,15 +438,19 @@ When the user provides a target keyword and brief:
 
 3. **Write**: Front-load the fast-scan summary matrix in the first 200 words. Build 500-token chunks using the Snippet Answer rule. Integrate the "Not For You" block.
 
-4. **Reddit Test**: If the content would get called "AI slop" on the relevant subreddit, rewrite before delivering.
+4. **FAQ Section**: Include a dedicated FAQ section answering at least 3 People Also Ask questions from research data. Each Q&A pair must be wrapped in FAQPage schema. This is NOT optional.
 
-5. **Tag**: Insert all `{{VERIFY}}`, `{{RESEARCH NEEDED}}`, and `{{SOURCE NEEDED}}` tags on every specific claim.
+5. **Hub & Spoke Links**: If the page is a hub, list its spoke pages with links. If it's a spoke, link back to its hub. Include a "Related Pages" or "More Guides" section at the bottom with actual internal link targets.
 
-6. **Markup**: Output final markdown with clean `<table>` structures and JSON-LD schema.
+6. **Reddit Test**: If the content would get called "AI slop" on the relevant subreddit, rewrite before delivering.
 
-7. **Quality Checklist**: Run the checklist (Section 14) before delivery. If any item fails, revise.
+7. **Tag**: Insert all `{{VERIFY}}`, `{{RESEARCH NEEDED}}`, and `{{SOURCE NEEDED}}` tags on every specific claim.
 
-8. **Save**: Output to `~/Documents/SEO-AGI/pages/` (new pages) or `~/Documents/SEO-AGI/rewrites/` (rewrites).
+8. **Schema Markup**: Generate complete JSON-LD schema block(s) at the end of the page. Required per page type (Section 6). Also embed key entities inline using RDFa or Microdata spans where appropriate. Do NOT skip this step.
+
+9. **Quality Checklist**: Run the checklist (Section 14) and **print the scorecard in the output** (see Section 14 for format). If any item fails, revise before delivering.
+
+10. **Save**: Output to `~/Documents/SEO-AGI/pages/` (new pages) or `~/Documents/SEO-AGI/rewrites/` (rewrites).
 
 ### Rewrite Protocol
 
@@ -477,25 +477,33 @@ For batch requests ("write 5 location pages for [service]"), decompose into para
 
 Run before every delivery. If any answer is NO, revise before delivering.
 
-| Check | Required |
-|-------|----------|
-| Does the page contain information gain over the top 10 Google results? | YES |
-| Would a knowledgeable Reddit commenter upvote this? | YES |
-| Is the core answer in the first 150 words? | YES |
-| Is there a fast-scan summary within the first 200 words? | YES |
-| Are there 2+ hard operational Prove-It facts? | YES |
-| Is there at least one real HTML/Markdown table? | YES |
-| Is every section doing a unique job (no repetition)? | YES |
-| Are all specific numbers tagged with `{{VERIFY}}`? | YES |
-| Are all citations specific and traceable? | YES |
-| Is there a "Not For You" block? | YES |
-| Is the content structured for LLM extraction (500-token chunks)? | YES |
-| Does the page avoid all banned phrases and patterns? | YES |
-| Word count within competitive range (from research data)? | YES |
-| JSON-LD schema included and matches page type? | YES |
-| Title tag <60 chars with target keyword? | YES |
-| Meta description <155 chars with value prop? | YES |
-| Is every piece of content inside the site's core topical circle? (audit and remove or noindex anything that strays) | YES |
+**MANDATORY: Print this scorecard at the end of every page output.** Use the exact format below so the user can see what passed and what needs attention.
+
+| # | Check | Pass? |
+|---|-------|-------|
+| 1 | Information gain over top 10 Google results? | YES/NO |
+| 2 | Would a knowledgeable Reddit commenter upvote this? | YES/NO |
+| 3 | Core answer in first 150 words? | YES/NO |
+| 4 | Fast-scan summary within first 200 words? | YES/NO |
+| 5 | 2+ hard operational Prove-It facts? | YES/NO |
+| 6 | At least one real HTML table (not bullet lists)? | YES/NO |
+| 7 | Every section doing a unique job (no repetition)? | YES/NO |
+| 8 | All specific numbers tagged with `{{VERIFY}}`? | YES/NO |
+| 9 | All citations specific and traceable? | YES/NO |
+| 10 | "Not For You" block present? | YES/NO |
+| 11 | Content structured for LLM extraction (500-token chunks)? | YES/NO |
+| 12 | No banned phrases or patterns? | YES/NO |
+| 13 | Word count within competitive range? | YES/NO |
+| 14 | JSON-LD schema block included and matches page type? | YES/NO |
+| 15 | FAQ section with 3+ PAA questions answered? | YES/NO |
+| 16 | Hub/spoke internal links included? | YES/NO |
+| 17 | Title tag <60 chars with target keyword? | YES/NO |
+| 18 | Meta description <155 chars with value prop? | YES/NO |
+| 19 | Content inside site's core topical circle? | YES/NO |
+| 20 | `reddit_test` and `information_gain` in frontmatter? | YES/NO |
+| | **Score: X/20** | |
+
+Pages scoring below 16/20 must be revised before delivery. Items marked NO must include a note on what needs to be fixed.
 
 ---
 
